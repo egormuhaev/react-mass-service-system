@@ -1,0 +1,151 @@
+.item {
+  position: relative;
+
+  gap: 4px;
+
+  height: 55px;
+  width: 100%;
+
+  padding: 4px;
+
+  box-sizing: border-box;
+
+  transition: all 0.2s;
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  height: 30px;
+  width: 200px;
+
+  top: 14px;
+  right: -210px;
+
+  border-radius: 4px;
+}
+
+.dark .tooltip {
+  color: #fff;
+  background-color: #262626;
+}
+
+.light .tooltip {
+  color: var(--black-light);
+  border: 1px solid #f0f0f0;
+}
+
+.light.item {
+  background-color: var(--bg-light);
+  color: var(--black-light);
+}
+
+.dark.item {
+  background-color: var(--bg-dark);
+  color: #7d8791;
+}
+
+.light .active {
+  background-color: var(--bg-light) !important;
+  color: var(--primary-dark);
+}
+
+.dark .active {
+  background-color: var(--primary-dark) !important;
+  color: #fff;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 30px 1fr 16px;
+  grid-template-areas: 'mainIcon  text  subIcon';
+
+  text-align: center;
+  border-radius: 4px;
+
+  height: 100%;
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: 0px 16px 0px 48px;
+  transition: all 0.2s;
+}
+
+.inner.slim {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'mainIcon';
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+
+  height: 100%;
+  width: 100%;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+.light .inner:hover {
+  background-color: var(--gray-bg-light);
+}
+
+.dark .inner:hover svg {
+  color: #fff;
+  fill: #fff;
+}
+
+.light .inner svg {
+  fill: var(--black-light);
+  height: 30px;
+  width: 30px;
+}
+
+.dark .inner svg {
+  fill: #7d8791;
+  height: 30px;
+  width: 30px;
+}
+
+.mainIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  grid-area: mainIcon;
+
+  height: 30px;
+  width: 30px;
+
+  height: 100%;
+  width: 100%;
+}
+
+.light .active .mainIcon svg {
+  fill: var(--primary-light);
+}
+
+.dark .active .mainIcon svg {
+  fill: #fff;
+}
+
+.subIcon {
+  grid-area: subIcon;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  grid-area: text;
+}

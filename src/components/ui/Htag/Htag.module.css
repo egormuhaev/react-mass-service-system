@@ -1,0 +1,36 @@
+.h {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.h a {
+  text-decoration: none;
+}
+
+.s {
+  font-size: 24px;
+}
+
+.m {
+  font-size: 30px;
+}
+
+.primary {
+  color: var(#3f96ff);
+}
+
+.default {
+  color: var(#1d2628);
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}

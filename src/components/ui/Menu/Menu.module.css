@@ -1,0 +1,23 @@
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.vertical {
+  height: auto;
+  width: 100%;
+  flex-direction: column;
+  border-right: 1px solid #f0f0f0;
+}
+
+.horizontal {
+  height: auto;
+  width: 100%;
+  flex-direction: row;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.slim {
+  width: 86px !important;
+}

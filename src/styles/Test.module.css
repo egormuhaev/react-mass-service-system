@@ -1,0 +1,15 @@
+.page {
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+  background-color: #f6f5f9;
+
+  z-index: 0;
+
+  user-select: none;
+}
+
+.dark.page {
+  background-color: #181a1d;
+}
