@@ -1,19 +1,10 @@
-export interface IRouterPublic {
-  TEST: string;
-  AUTORIZATION: string;
-  REGISTRATION: string;
-}
-
-export interface IRouterPrivate {
-  MAIN: string;
-}
-
-export const routerPublick: IRouterPublic = {
-  TEST: '/',
+export const routerPublick = {
   AUTORIZATION: '/autorization',
   REGISTRATION: '/registration',
+  PREVIEW: '/preview',
 };
 
-export const routerPrivate: IRouterPrivate = {
-  MAIN: '/main',
+export const routerPrivate = {
+  PROJECTS: '/projects',
+  ACCOUNT: '/account'
 };

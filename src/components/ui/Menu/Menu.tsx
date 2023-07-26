@@ -1,6 +1,6 @@
 import styles from './Menu.module.css';
 import cn from 'classnames';
-import { MenuProps } from '../../../interfaces/props/Menu.props';
+import { MenuProps } from './Menu.props';
 import MenuItem from '../MenuItem/MenuItem';
 import { useMemo, useState } from 'react';
 
@@ -12,6 +12,7 @@ const Menu: React.FC<MenuProps> = ({
   orientation = 'v',
   actionOnClick,
   theme = 'light',
+  neomorphism = false,
   ...props
 }) => {
   const [selected, setSelected] = useState<number | string | null>(null);
@@ -20,6 +21,7 @@ const Menu: React.FC<MenuProps> = ({
     if (struct)
       return struct.map((item, index) => (
         <MenuItem
+          neomorphism={neomorphism}
           isSelect={selected}
           id={index}
           token={item.token}
@@ -44,13 +46,21 @@ const Menu: React.FC<MenuProps> = ({
     <div
       className={cn(
         styles.menu,
+
         className,
+        {
+          [styles.neomorphism]: neomorphism && slim,
+        },
         {
           [styles.slim]: slim === true,
         },
+
         {
           [styles.vertical]: orientation === 'v',
           [styles.horizontal]: orientation === 'h',
+        },
+        {
+          [styles.dark]: theme === 'dark',
         }
       )}
       {...props}

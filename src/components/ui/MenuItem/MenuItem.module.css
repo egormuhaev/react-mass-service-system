@@ -1,30 +1,31 @@
 .item {
   position: relative;
 
-  gap: 4px;
+  box-sizing: border-box;
+  width: 100%;
 
   height: 55px;
-  width: 100%;
 
   padding: 4px;
 
-  box-sizing: border-box;
-
   transition: all 0.2s;
+
+  gap: 4px;
 }
 
 .tooltip {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
   position: absolute;
-  height: 30px;
-  width: 200px;
 
   top: 14px;
   right: -210px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 200px;
+  height: 30px;
 
   border-radius: 4px;
 }
@@ -35,66 +36,70 @@
 }
 
 .light .tooltip {
-  color: var(--black-light);
-  border: 1px solid #f0f0f0;
+  color: #fff;
+  background-color: #262626;
 }
 
 .light.item {
-  background-color: var(--bg-light);
-  color: var(--black-light);
+  color: var(--black);
+  background-color: #fff;
 }
 
 .dark.item {
-  background-color: var(--bg-dark);
   color: #7d8791;
+  background-color: var(--bg-ui-dark);
 }
 
 .light .active {
-  background-color: var(--bg-light) !important;
-  color: var(--primary-dark);
+  color: var(--blue);
+  background-color: #fff !important;
 }
 
 .dark .active {
-  background-color: var(--primary-dark) !important;
   color: #fff;
+  background-color: var(--blue) !important;
 }
 
 .inner {
   display: grid;
-  grid-template-columns: 30px 1fr 16px;
-  grid-template-areas: 'mainIcon  text  subIcon';
-
-  text-align: center;
-  border-radius: 4px;
-
-  height: 100%;
-  width: 100%;
 
   box-sizing: border-box;
-  padding: 0px 16px 0px 48px;
+  width: 100%;
+
+  height: 100%;
+  padding: 0 10px 0 20px;
+
   transition: all 0.2s;
+
+  text-align: center;
+
+  border-radius: 4px;
+
+  gap: 20px;
+  grid-template-columns: 30px 1fr 16px;
+  grid-template-areas: 'mainIcon  text  subIcon';
 }
 
 .inner.slim {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: 'mainIcon';
-
-  justify-content: center;
   align-items: center;
 
-  border-radius: 4px;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
 
   height: 100%;
-  width: 100%;
 
   padding: 0;
 
-  box-sizing: border-box;
+  border-radius: 4px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'mainIcon';
 }
 
 .light .inner:hover {
-  background-color: var(--gray-bg-light);
+  background-color: var(--gray);
 }
 
 .dark .inner:hover svg {
@@ -103,34 +108,35 @@
 }
 
 .light .inner svg {
-  fill: var(--black-light);
-  height: 30px;
   width: 30px;
+  height: 30px;
+  fill: var(--black-light);
 }
 
 .dark .inner svg {
-  fill: #7d8791;
-  height: 30px;
   width: 30px;
+  height: 30px;
+  fill: #7d8791;
 }
 
 .mainIcon {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
 
-  grid-area: mainIcon;
+  width: 30px;
+  width: 100%;
 
   height: 30px;
-  width: 30px;
 
   height: 100%;
-  width: 100%;
+
+  grid-area: mainIcon;
 }
 
 .light .active .mainIcon svg {
-  fill: var(--primary-light);
+  fill: var(--blue);
 }
 
 .dark .active .mainIcon svg {
@@ -143,9 +149,13 @@
 
 .title {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
 
   grid-area: text;
+}
+
+.item.neomorphism {
+  width: 55px;
 }

@@ -1,17 +1,19 @@
 .modal {
+  z-index: 7;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: flex-start;
+
+  box-sizing: border-box;
 
   min-height: 180px;
 
   margin-top: 10%;
+  padding: 16px;
 
   border-radius: 12px;
-  padding: 16px;
-  box-sizing: border-box;
-  z-index: 7;
 }
 
 .m.modal {
@@ -24,29 +26,29 @@
 
 .title {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   justify-content: flex-start;
+
+  box-sizing: border-box;
 
   width: 100%;
   height: 41px;
 
-  font-weight: bold;
-
   border-radius: 12px;
 
-  box-sizing: border-box;
+  font-weight: bold;
 }
 
 .title .icon {
-  height: 30px;
   width: 30px;
+  height: 30px;
   margin-right: 10px;
 }
 
 .title .icon > svg {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .dark .icon > svg,
@@ -56,7 +58,7 @@
 
 .light .icon > svg,
 .light .close > svg {
-  fill: #1d2628;
+  fill: var(--black);
 }
 
 .title .text {
@@ -64,55 +66,57 @@
 }
 
 .close {
-  cursor: pointer;
-
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 
-  height: 30px;
   width: 30px;
 
+  height: 30px;
+  margin-right: 0;
+
   margin-left: auto;
-  margin-right: 0px;
-  background-color: none;
+
+  cursor: pointer;
+
   border: none;
+  background-color: none;
 }
 
 .dark .close {
-  background-color: #1d2628;
+  background-color: var(--black);
 }
 
 .light .close {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .close > svg {
-  height: 100%;
   width: 100%;
-  fill: #000;
+  height: 100%;
+  fill: var(--black);
 }
 
 .bg {
+  position: absolute;
+
+  z-index: 2;
   top: 0;
   left: 0;
 
-  position: absolute;
-
-  background-color: rgb(0, 0, 0, 0.1);
-
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: flex-start;
 
-  height: 100vh;
   width: 100%;
 
-  z-index: 2;
+  height: 100vh;
 
   user-select: none;
+
+  background-color: rgb(0 0 0 / 10%);
 }
 
 .bg.visible {
@@ -120,63 +124,69 @@
 }
 
 .dark.modal {
-  background-color: #1d2628;
-  color: #ffffff;
+  color: #fff;
+  background-color: var(--bg-ui-dark);
+  box-shadow: 9px 9px 24px #0f1012, -9px -9px 24px #212428;
 }
 
 .light.modal {
-  background-color: #ffffff;
-  color: #1d2628;
+  color: var(--black);
+  background-color: #fff;
+  box-shadow: 9px 9px 24px #969598, -9px -9px 24px #ffffff;
 }
 
 .content {
-  box-sizing: border-box;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
   justify-content: flex-start;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+
+  text-align: left;
+  word-break: break-all;
 
   font-size: 15px;
 
   font-weight: 600;
-  height: 100%;
-  width: 100%;
-  word-break: break-all;
-
-  text-align: left;
 }
 
 .footer {
-  margin-top: auto;
-  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
 
-  gap: 10px;
-
-  height: auto;
   width: 100%;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: 0;
+
+  gap: 10px;
 }
 
 .ghost.icon > svg {
-  fill: #1d2628;
+  fill: var(--black);
 }
+
 .primary.icon > svg {
-  fill: #3f96ff;
+  fill: var(--blue);
 }
+
 .error.icon > svg {
-  fill: #ff4d4f;
+  fill: var(--red);
 }
+
 .success.icon > svg {
-  fill: #00fc00;
+  fill: var(--green);
 }
+
 .warring.icon > svg {
-  fill: #faad14;
+  fill: var(--orange);
 }

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Message } from '../components';
-import { MessageItemProps, Theme } from '../interfaces/props/Message.props';
+import {
+  MessageItemProps,
+  Theme,
+} from '../components/ui/Message/Message.props';
 import { v4 } from 'uuid';
 
 interface UseMessageReturn {
@@ -29,7 +32,9 @@ const useMessage = (theme: Theme): UseMessageReturn => {
       ...messageList,
       {
         ...args,
+        theme: theme,
         id: idMessage,
+        duration: 3,
       },
     ]);
   };
@@ -40,6 +45,7 @@ const useMessage = (theme: Theme): UseMessageReturn => {
       ...loadingList,
       {
         ...args,
+        theme: theme,
         type: 'loading',
         id: idLoading,
       },

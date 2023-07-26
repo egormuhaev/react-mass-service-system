@@ -15,24 +15,26 @@ import { rootReducer } from './rootReducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['authentication'],
+  whitelist: ['authenticationReducer', 'settingsReducer'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const setupStore = () =>
-  configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-      }),
-  });
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
-export const persister = persistStore(setupStore());
+export const setupStore = () => store;
+export const persister = persistStore(store);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
 export type AppDispatch = AppStore['dispatch'];
+
+export default store;

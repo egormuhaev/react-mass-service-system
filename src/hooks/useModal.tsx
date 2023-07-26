@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ModalProps } from '../interfaces/props/Modal.props';
+import { ModalProps, Theme } from '../components/ui/Modal/Modal.props';
 import { BiErrorAlt } from 'react-icons/bi';
 import { GrStatusGood } from 'react-icons/gr';
 import { IoWarning } from 'react-icons/io5';
@@ -53,18 +53,23 @@ export type UseModalReturn = {
   modal: JSX.Element | null;
   getCustomModal: (args: ModalProps) => void;
   getPresetModal: (type: Presets, message: string, title: string) => void;
+  getModalRerender: (args: ModalProps) => JSX.Element;
 };
 
-const useModal = (): UseModalReturn => {
+const useModal = (theme: Theme): UseModalReturn => {
   const [modal, setModal] = useState<JSX.Element | null>(null);
 
-  const removeModal = async (a: null) => {
-    setModal(a);
+  const removeModal = async () => {
+    setModal(null);
   };
 
   const getCustomModal = ({ ...args }: ModalProps) => {
-    const newModal = <Modal {...args} close={removeModal} />;
+    const newModal = <Modal {...args} theme={theme} close={removeModal} />;
     setModal(newModal);
+  };
+
+  const getModalRerender = ({ ...args }: ModalProps) => {
+    return <Modal {...args} theme={theme}  />;
   };
 
   const getPresetModal = (type: Presets, message: string, title: string) => {
@@ -73,6 +78,7 @@ const useModal = (): UseModalReturn => {
         {...modalPreset[type]}
         tittleIconAppearence={modalPreset[type].tittleIconAppearence}
         children={message}
+        theme={theme}
         title={modalPreset[type].title + `${title}`}
         close={removeModal}
       />
@@ -80,7 +86,12 @@ const useModal = (): UseModalReturn => {
     setModal(newModal);
   };
 
-  return { modal, getCustomModal, getPresetModal };
+  return {
+    modal,
+    getCustomModal,
+    getPresetModal,
+    getModalRerender,
+  };
 };
 
 export default useModal;

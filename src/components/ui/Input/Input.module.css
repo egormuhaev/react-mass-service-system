@@ -1,65 +1,69 @@
 .container {
   position: relative;
-  width: 100%;
-  border-radius: 4px;
-
-  border: 2px solid #d9d9d9;
-
-  box-sizing: border-box;
 
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
 
+  box-sizing: border-box;
+  width: 100%;
+
   padding: 0;
+
+  border: 2px solid #d9d9d9;
+  border-radius: 4px;
 }
 
 .container:hover {
-  border: 2px solid #3f96ff;
   transition: all 0.2s;
+
+  border: 2px solid var(--blue);
 }
 
 .prefix {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
+
+  min-width: 88px;
+
+  height: 100%;
+
+  border-right: 2px solid #d9d9d9;
 
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
-
-  height: 100%;
-  width: 88px;
-
-  border-right: 2px solid #d9d9d9;
 }
 
 .postfix {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
+
+  min-width: 80px;
+
+  height: 100%;
+
+  border-left: 2px solid #d9d9d9;
 
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
-
-  height: 100%;
-  width: 80px;
-
-  border-left: 2px solid #d9d9d9;
 }
 
 .input {
-  height: 100%;
   width: 100%;
-
-  border-radius: 4px;
-  border: none;
-  outline: none;
+  height: 100%;
 
   padding-right: 10px;
   padding-left: 10px;
+
+  border: none;
+
+  border-radius: 4px;
+  outline: none;
 }
 
 .s {
@@ -77,8 +81,9 @@
 .s .input,
 .s .prefix,
 .s .postfix {
-  font-size: 10px;
   height: 24px;
+
+  font-size: 10px;
 }
 
 .s .prefix,
@@ -89,8 +94,9 @@
 .m .input,
 .m .prefix,
 .m .postfix {
-  font-size: 13px;
   height: 32px;
+
+  font-size: 13px;
 }
 
 .m .prefix,
@@ -101,8 +107,9 @@
 .l .input,
 .l .prefix,
 .l .postfix {
-  font-size: 16px;
   height: 41px;
+
+  font-size: 16px;
 }
 
 .l .prefix,
@@ -112,80 +119,97 @@
 
 .ghost .prefix,
 .ghost .postfix {
+  color: var(--black);
   background-color: #fafafa;
-  color: #1e1e1e;
 }
 
 .primary .prefix,
 .primary .postfix {
-  background-color: #3f96ff;
-  color: #fff;
+  color: var(--black);
+  background-color: var(--blue);
 }
 
 .dark.primary .prefix,
 .dark.primary .postfix {
-  background-color: #4170fd;
-  color: #fff;
+  color: var(--black);
+  background-color: var(--blue-dark);
 }
 
 .error .prefix,
 .error .postfix {
-  background-color: #ff4d4f;
   color: #fff;
+  background-color: var(--red);
+}
+
+.dark.error .prefix,
+.dark.error .postfix {
+  color: var(--black);
+  background-color: var(--red-dark);
 }
 
 .success .prefix,
 .success .postfix {
-  background-color: #00fc00;
   color: #fff;
+  background-color: var(--green);
 }
 
 .dark.success .prefix,
 .dark.success .postfix {
-  background-color: #53c51a;
-  color: #fff;
+  color: var(--black);
+  background-color: var(--green-dark);
 }
 
 .warring .prefix,
 .warring .postfix {
-  background-color: #faad14;
   color: #fff;
+  background-color: var(--orange);
+}
+
+.dark.warring .prefix,
+.dark.warring .postfix {
+  color: var(--black);
+  background-color: var(--orange-dark);
 }
 
 .ghost .prefix > svg,
 .ghost .postfix > svg {
-  fill: #1e1e1e;
+  fill: var(--black);
 }
+
 .primary .prefix > svg,
 .primary .postfix > svg {
   fill: #fff;
 }
+
 .error .prefix > svg,
 .error .postfix > svg {
   fill: #fff;
 }
+
 .success .prefix > svg,
 .success .postfix > svg {
   fill: #fff;
 }
+
 .warring .prefix > svg,
 .warring .postfix > svg {
   fill: #fff;
 }
 
 .dark .input {
-  background-color: #1f1f1f;
   color: #fff;
+  background-color: var(--bg-ui-dark);
 }
 
 .dark.container {
-  background-color: #1f1f1f;
   border: 2px solid #fff;
+  background-color: var(--bg-ui-dark);
 }
 
 .dark.container:hover {
-  border: 2px solid #3f96ff;
   transition: all 0.2s;
+
+  border: 2px solid var(--blue-dark);
 }
 
 .dark .prefix {

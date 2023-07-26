@@ -1,6 +1,6 @@
 import styles from './Input.module.css';
 import cn from 'classnames';
-import { InputProps } from '../../../interfaces/props/Input.props';
+import { InputProps } from './Input.props';
 
 const Input: React.FC<InputProps> = ({
   children,

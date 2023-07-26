@@ -1,4 +1,4 @@
-import { ModalProps } from '../../../interfaces/props/Modal.props';
+import { ModalProps } from './Modal.props';
 import cn from 'classnames';
 import styles from './Modal.module.css';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -17,11 +17,15 @@ const Modal: React.FC<ModalProps> = ({
   ...props
 }) => {
   const [visible, setVisible] = useState(true);
-
   const footerActions = useMemo(() => {
     if (footer)
-      return footer.map((e) => (
-        <Button size="s" appearence={e.appearence ?? 'ghost'}>
+      return footer.map((e, index) => (
+        <Button
+          onClick={e.action}
+          key={index}
+          size="s"
+          appearence={e.appearence ?? 'ghost'}
+        >
           {e.title}
         </Button>
       ));
@@ -29,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({
 
   const onClickClose = useCallback(() => {
     if (close) {
-      close(null);
+      close();
     } else {
       setVisible(false);
     }

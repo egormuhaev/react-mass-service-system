@@ -1,17 +1,34 @@
 import { Routes, Route } from 'react-router-dom';
 import { routerPrivate, routerPublick } from '../routes/config.routes';
-import Test from '../pages/Test';
-import Autorization from '../pages/Autorization';
-import Registration from '../pages/Registration';
-import Main from '../pages/Main';
+import Account from '../pages/Account/Account';
+import Autorization from '../pages/Autorization/Autorization.page';
+import Registration from '../pages/Registration/Registration.page';
+import Dashboard from '../pages/Projects/Projects.page';
+import AuthRequire from '../hoc/AuthRequire.hoc';
+import Preview from '../pages/Preview/Preview.page';
 
 const AppRouter: React.FC = (): JSX.Element => {
   return (
     <Routes>
-      <Route path={routerPublick.TEST} element={<Test />} />
+      <Route path="/" element={<Preview />} />
       <Route path={routerPublick.AUTORIZATION} element={<Autorization />} />
       <Route path={routerPublick.REGISTRATION} element={<Registration />} />
-      <Route path={routerPrivate.MAIN} element={<Main />} />
+      <Route
+        path={routerPrivate.PROJECTS}
+        element={
+          <AuthRequire>
+            <Dashboard />
+          </AuthRequire>
+        }
+      />
+      <Route
+        path={routerPrivate.ACCOUNT}
+        element={
+          <AuthRequire>
+            <Account />
+          </AuthRequire>
+        }
+      />
     </Routes>
   );
 };

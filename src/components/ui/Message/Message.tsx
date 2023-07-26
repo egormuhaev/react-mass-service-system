@@ -1,7 +1,7 @@
-import { MessageProps } from '../../../interfaces/props/Message.props';
+import { MessageProps } from './Message.props';
 import styles from './Message.module.css';
 import cn from 'classnames';
-import MessageItem from '../MessageItemInfo/MessageItem';
+import MessageItem from '../MessageItem/MessageItem';
 import { useEffect, useState } from 'react';
 
 const Message: React.FC<MessageProps> = ({
@@ -13,12 +13,21 @@ const Message: React.FC<MessageProps> = ({
   ...props
 }) => {
   const [messageList, setMessageList] = useState<JSX.Element[] | null>(null);
+  const [loadingList, setLoadingList] = useState<JSX.Element[] | null>(null);
 
   useEffect(() => {
-    const mList = mesages.map((m) => <MessageItem {...m} key={m.id} />);
-    const lList = loadings.map((l) => <MessageItem {...l} key={l.id} />);
-    setMessageList([...mList, ...lList]);
-  }, [mesages, loadings]);
+    const mList = mesages.map((message) => (
+      <MessageItem {...message} key={message.id} />
+    ));
+    setMessageList(mList);
+  }, [mesages]);
+
+  useEffect(() => {
+    const lList = loadings.map((loading) => (
+      <MessageItem {...loading} key={loading.id} />
+    ));
+    setLoadingList(lList);
+  }, [loadings]);
 
   return (
     <div
@@ -31,6 +40,7 @@ const Message: React.FC<MessageProps> = ({
       {...props}
     >
       {messageList}
+      {loadingList}
     </div>
   );
 };

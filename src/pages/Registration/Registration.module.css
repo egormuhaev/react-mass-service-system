@@ -1,0 +1,27 @@
+.controlls {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.controlls .link {
+  width: auto;
+
+  height: auto;
+
+  margin-left: 50px;
+
+  font-size: 13px;
+}
+
+.controlls .link > a {
+  margin-right: 3px;
+
+  text-decoration: none;
+
+  color: #3F96FF;
+}

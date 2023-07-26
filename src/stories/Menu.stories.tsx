@@ -1,5 +1,5 @@
 import { Menu } from '../components';
-import { MenuActionClick, MenuStruct } from '../interfaces/props/Menu.props';
+import { MenuActionClick, MenuStruct } from '../components/ui/Menu/Menu.props';
 import type { Meta, StoryObj } from '@storybook/react';
 import { AiOutlineBars, AiOutlineFacebook } from 'react-icons/ai';
 import '../index.css';

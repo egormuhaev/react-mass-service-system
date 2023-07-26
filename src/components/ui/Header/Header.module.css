@@ -1,0 +1,20 @@
+.header {
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--bg-ui-light);
+  /* border-bottom: 1px solid var(--gray-dark); */
+}
+
+.dark.header {
+  background-color: var(--bg-ui-dark);
+  border-bottom: none;
+}
+
+.neomorphism {
+  background-color: var(--bg-light);
+}
+
+.dark.neomorphism {
+  background-color: var(--bg-dark);
+}

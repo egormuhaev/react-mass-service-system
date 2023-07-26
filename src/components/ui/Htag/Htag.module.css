@@ -16,11 +16,11 @@
 }
 
 .primary {
-  color: var(#3f96ff);
+  color: var(#3F96FF);
 }
 
 .default {
-  color: var(#1d2628);
+  color: var(--balck);
 }
 
 .center {
@@ -33,4 +33,8 @@
 
 .left {
   text-align: left;
+}
+
+.dark.default {
+  color: #FFF;
 }

@@ -3,23 +3,38 @@ export const isRegEmailValid = (email: string): boolean => {
   return emailRegex.test(email);
 };
 
-export const passwordComplexity = (password: string): number => {
-  const lowercaseRegex = /[a-z]/;
-  const uppercaseRegex = /[A-Z]/;
-  const digitRegex = /[0-9]/;
-  const specialCharRegex = /[@#$%^&+=!]/g;
+export const lowercaseRegex = (str: string) => {
+  const reg = /[a-z]/;
+  return reg.test(str);
+};
 
+export const uppercaseRegex = (str: string) => {
+  const reg = /[A-Z]/;
+  return reg.test(str);
+};
+
+export const digitRegex = (str: string) => {
+  const reg = /[0-9]/;
+  return reg.test(str);
+};
+
+export const specialCharRegex = (str: string) => {
+  const reg = /[@#$%^&+=!]/g;
+  return reg.test(str);
+};
+
+export const passwordComplexity = (password: string): number => {
   let complexity = 0;
-  if (lowercaseRegex.test(password)) {
+  if (lowercaseRegex(password)) {
     complexity += 1;
   }
-  if (uppercaseRegex.test(password)) {
+  if (uppercaseRegex(password)) {
     complexity += 1;
   }
-  if (digitRegex.test(password)) {
+  if (digitRegex(password)) {
     complexity += 1;
   }
-  if (specialCharRegex.test(password)) {
+  if (specialCharRegex(password)) {
     complexity += 1;
   }
   complexity +=

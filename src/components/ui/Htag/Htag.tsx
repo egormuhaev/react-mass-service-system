@@ -1,17 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import cn from 'classnames';
-import style from './Htag.module.css';
-
-export interface HtagProps
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLParagraphElement>,
-    HTMLParagraphElement
-  > {
-  children: React.ReactNode;
-  appearance?: 'primary' | 'default';
-  size: 's' | 'm';
-  textAlign?: 'center' | 'right' | 'left';
-}
+import styles from './Htag.module.css';
+import { HtagProps } from './Htag.props';
 
 const Htag: React.FC<HtagProps> = ({
   children,
@@ -19,27 +8,32 @@ const Htag: React.FC<HtagProps> = ({
   appearance = 'default',
   className,
   textAlign = 'center',
+  theme,
   ...props
 }): JSX.Element => {
   return (
     <h1
       className={cn(
         className,
-        style.h,
+        styles.h,
         {
-          [style.primary]: appearance === 'primary',
-          [style.default]: appearance === 'default',
+          [styles.primary]: appearance === 'primary',
+          [styles.default]: appearance === 'default',
         },
         {
-          [style.s]: size === 's',
-          [style.m]: size === 'm',
+          [styles.s]: size === 's',
+          [styles.m]: size === 'm',
         },
         {
-          [style.center]: textAlign === 'center',
-          [style.right]: textAlign === 'right',
-          [style.left]: textAlign === 'left',
+          [styles.center]: textAlign === 'center',
+          [styles.right]: textAlign === 'right',
+          [styles.left]: textAlign === 'left',
+        },
+        {
+          [styles.dark]: theme === 'dark',
         }
       )}
+      {...props}
     >
       {children}
     </h1>

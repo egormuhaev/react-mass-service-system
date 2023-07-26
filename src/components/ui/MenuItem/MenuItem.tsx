@@ -1,5 +1,5 @@
 import styles from './MenuItem.module.css';
-import { MenuItemProps } from '../../../interfaces/props/Menu.props';
+import { MenuItemProps } from '../Menu/Menu.props';
 import cn from 'classnames';
 import { useCallback, useState } from 'react';
 
@@ -14,6 +14,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   isSelect, // текущий выбранный пункт меню
   actionOnClick, // функция которая срабатывает при активации пункта меню
   subIcon, // второстименноая иконка меню
+  neomorphism = false,
 }) => {
   const [tooltip, setTooltip] = useState(false);
 
@@ -33,10 +34,14 @@ const MenuItem: React.FC<MenuItemProps> = ({
       onMouseEnter={() => setTooltip(true)}
       onMouseLeave={() => setTooltip(false)}
       onClick={onClick}
-      className={cn(styles.item, {
-        [styles.light]: theme === 'light',
-        [styles.dark]: theme === 'dark',
-      })}
+      className={cn(
+        styles.item,
+        { [styles.neomorphism]: neomorphism },
+        {
+          [styles.light]: theme === 'light',
+          [styles.dark]: theme === 'dark',
+        }
+      )}
     >
       <div
         className={cn(

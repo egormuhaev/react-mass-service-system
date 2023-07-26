@@ -20,7 +20,6 @@ export const authenticationSlice = createSlice({
       if (action.payload.session && action.payload.user) {
         state.data.session = action.payload.session;
         state.data.user = action.payload.user;
-
         state.processAuth = true;
       } else {
         state.processAuth = false;

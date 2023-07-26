@@ -1,0 +1,52 @@
+.page {
+  z-index: 0;
+
+  display: grid;
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  height: 100vh;
+
+  user-select: none;
+
+  background-color: var(--bg-light);
+  grid-template-columns: auto 900px auto;
+  grid-template-rows: auto 500px auto;
+  grid-template-areas: '. . .' '. form . ' '. . .';
+}
+
+.dark.page {
+  background-color: var(--bg-dark);
+}
+
+.form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  height: 100%;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  background-color: var(--bg-ui-light);
+
+  grid-area: form;
+
+  gap: 30px;
+
+  box-shadow: 9px 9px 24px #969598, -9px -9px 24px #ffffff;
+}
+
+.dark .form {
+  background-color: var(--bg-ui-dark);
+  box-shadow: 9px 9px 24px #0f1012, -9px -9px 24px #212428;
+}
