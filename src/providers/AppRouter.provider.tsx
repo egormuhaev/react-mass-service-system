@@ -6,6 +6,7 @@ import Registration from '../pages/Registration/Registration.page';
 import Dashboard from '../pages/Projects/Projects.page';
 import AuthRequire from '../hoc/AuthRequire.hoc';
 import Preview from '../pages/Preview/Preview.page';
+import Settings from '../pages/Settings/Settings';
 
 const AppRouter: React.FC = (): JSX.Element => {
   return (
@@ -26,6 +27,14 @@ const AppRouter: React.FC = (): JSX.Element => {
         element={
           <AuthRequire>
             <Account />
+          </AuthRequire>
+        }
+      />
+      <Route
+        path={routerPrivate.SETTINGS}
+        element={
+          <AuthRequire>
+            <Settings />
           </AuthRequire>
         }
       />

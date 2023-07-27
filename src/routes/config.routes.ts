@@ -6,5 +6,6 @@ export const routerPublick = {
 
 export const routerPrivate = {
   PROJECTS: '/projects',
-  ACCOUNT: '/account'
+  ACCOUNT: '/account',
+  SETTINGS: '/settings',
 };

@@ -1,0 +1,23 @@
+ <AnimationFrame
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.5 }}
+      >
+        <motion.h1 custom={1} variants={animationText}>
+          Preview
+        </motion.h1>
+        <motion.p custom={2} variants={animationText}>
+          GetStarted
+        </motion.p>
+        <AnimationFrame custom={3} variants={animationText}>
+          <Button text={123} size="s" appearence="primary" />
+        </AnimationFrame>
+        <AnimationFrame custom={4} variants={animationText}>
+          <CardView
+            title="Неоморфизм"
+            size="s"
+            theme={settings.theme}
+            img={paletDark}
+          />
+        </AnimationFrame>
+      </AnimationFrame>

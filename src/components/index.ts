@@ -12,10 +12,14 @@ import CardProject from './projects/CardProject/CardProject';
 import CreacteProjectModal from './projects/CreacteProjectModal/CreacteProjectModal';
 import CardProjectList from './projects/CardProjectList/CardProjectList';
 import Header from './ui/Header/Header';
-import SwitchInnerIcon from './account/SwitchInnerIcon/SwitchInnerIcon';
-import SwitchTheme from './account/SwitchTheme/SwitchTheme';
-import SwitchSlim from './account/SwitchSlim/SwitchSlim';
-import SwitchNeomorp from './account/SwitchNeomorp/SwitchNeomorp';
+import SwitchInnerIcon from './settings/SwitchInnerIcon/SwitchInnerIcon';
+import SwitchTheme from './settings/SwitchTheme/SwitchTheme';
+import SwitchSlim from './settings/SwitchSlim/SwitchSlim';
+import SwitchNeomorp from './settings/SwitchNeomorp/SwitchNeomorp';
+import SettingsBox from './settings/SettingsBox/SettingsBox';
+import CardView from './ui/CardView/CardView';
+import { MCardView } from './ui/CardView/CardView.moution';
+import { MButton } from './ui/Button/Button.moution';
 
 export {
   Menu,
@@ -35,5 +39,9 @@ export {
   SwitchInnerIcon,
   SwitchTheme,
   SwitchSlim,
-  SwitchNeomorp
+  SwitchNeomorp,
+  SettingsBox,
+  CardView,
+  MCardView,
+  MButton,
 };

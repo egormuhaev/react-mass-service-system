@@ -69,7 +69,7 @@ const useModal = (theme: Theme): UseModalReturn => {
   };
 
   const getModalRerender = ({ ...args }: ModalProps) => {
-    return <Modal {...args} theme={theme}  />;
+    return <Modal {...args} theme={theme} />;
   };
 
   const getPresetModal = (type: Presets, message: string, title: string) => {

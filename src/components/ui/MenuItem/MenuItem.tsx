@@ -1,33 +1,30 @@
 import styles from './MenuItem.module.css';
 import { MenuItemProps } from '../Menu/Menu.props';
 import cn from 'classnames';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const MenuItem: React.FC<MenuItemProps> = ({
-  text, // Текст пункта меню
-  icon, // Основная иконка
-  theme, // Цветовая тема
-  slim, // Ширина
-  id, // ID для выделения пунктов при выборе
-  token, // данные которые можно передать в пункт меню
-  setSelected, // функция устовновления выделения пункта меню
-  isSelect, // текущий выбранный пункт меню
-  actionOnClick, // функция которая срабатывает при активации пункта меню
-  subIcon, // второстименноая иконка меню
+  text,
+  icon,
+  theme,
+  slim,
+  id,
+  token,
+  setSelected,
+  isSelect,
+  actionOnClick,
+  subIcon,
   neomorphism = false,
 }) => {
   const [tooltip, setTooltip] = useState(false);
 
-  const onClick = useCallback(() => {
-    if (isSelect !== id) {
-      setSelected(id);
-      if (actionOnClick) {
-        actionOnClick({ text, token });
-      }
-    } else {
-      setSelected(null);
+  const onClick = () => {
+    setSelected(id);
+
+    if (actionOnClick) {
+      actionOnClick({ text, token });
     }
-  }, [isSelect]);
+  };
 
   return (
     <div

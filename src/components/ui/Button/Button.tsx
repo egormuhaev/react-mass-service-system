@@ -8,6 +8,7 @@ const Button: React.FC<ButtonProps> = ({
   appearence = 'ghost',
   icon,
   text,
+  ref,
   ...props
 }): JSX.Element => {
   return (
@@ -27,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
           [styles.success]: appearence === 'success',
         }
       )}
+      ref={ref}
       {...props}
     >
       {icon && icon}

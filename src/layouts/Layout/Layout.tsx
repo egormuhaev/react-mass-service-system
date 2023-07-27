@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { routerPrivate } from '../../routes/config.routes';
 import { CgProfile } from 'react-icons/cg';
 import { useSettings } from '../../hooks';
+import { IoSettingsSharp } from 'react-icons/io5';
 
 export interface LayoutProps {
   children?: React.ReactNode;
@@ -15,14 +16,19 @@ export interface LayoutProps {
 
 const menu: MenuStruct[] = [
   {
-    text: 'Account',
+    text: 'Акаунт',
     token: routerPrivate.ACCOUNT,
     icon: <CgProfile />,
   },
   {
-    text: 'Projects',
+    text: 'Проекты',
     token: routerPrivate.PROJECTS,
     icon: <BiSolidDashboard />,
+  },
+  {
+    text: 'Настройки',
+    token: routerPrivate.SETTINGS,
+    icon: <IoSettingsSharp />,
   },
 ];
 

@@ -1,0 +1,64 @@
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+  padding: 30px;
+  padding-top: 5px;
+  padding-left: 100px;
+
+  width: 100%;
+  height: auto;
+
+  border: 0.5px solid var(--gray-dark);
+
+  border-radius: 4px;
+
+  margin-bottom: 30px;
+}
+
+.otherContent {
+  margin-top: 20px;
+  height: auto;
+  width: 100%;
+}
+
+.settingsItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'title-settings controll-settings';
+  align-items: center;
+  text-align: left;
+
+  width: 100%;
+}
+
+.titleSettings {
+  color: var(--dark);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  grid-area: title-settings;
+  height: 100%;
+  width: 100%;
+}
+
+.dark .titleSettings {
+  color: #fff;
+}
+.controllSettings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  grid-area: controll-settings;
+  height: 100%;
+  width: 100%;
+}
