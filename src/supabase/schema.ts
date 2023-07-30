@@ -39,25 +39,28 @@ export interface Database {
       }
       tables: {
         Row: {
+          active: boolean | null
           created_at: string | null
           id: string
           name: string | null
           project_id: string | null
-          "table seating": number | null
+          table_seating: number | null
         }
         Insert: {
+          active?: boolean | null
           created_at?: string | null
           id?: string
           name?: string | null
           project_id?: string | null
-          "table seating"?: number | null
+          table_seating?: number | null
         }
         Update: {
+          active?: boolean | null
           created_at?: string | null
           id?: string
           name?: string | null
           project_id?: string | null
-          "table seating"?: number | null
+          table_seating?: number | null
         }
         Relationships: [
           {

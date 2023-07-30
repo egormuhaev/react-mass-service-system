@@ -56,7 +56,7 @@ const TableSeatingsCard: React.FC<TableSeatingsCardProps> = ({
           onChange={() => {
             return 0;
           }}
-          checked={active}
+          checked={active ?? true}
         />
 
         <Button appearence="warring">

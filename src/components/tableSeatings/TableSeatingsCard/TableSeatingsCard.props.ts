@@ -8,9 +8,9 @@ export interface TableSeatingsCardProps
     HTMLDivElement
   > {
   children?: React.ReactNode;
-  theme: Theme;
-  name: string;
+  theme?: Theme;
+  name: string | null;
   id: string;
-  active: boolean;
-  seatings?: number;
+  active: boolean | null;
+  seatings?: number | null;
 }

@@ -4,9 +4,10 @@ import TableSeatingsCard from '../TableSeatingsCard/TableSeatingsCard';
 
 const TableSeatingsCardList: React.FC<TableSeatingsCardListProps> = ({
   tables = [],
+  theme,
 }) => {
   const tablesList = tables.map((t) => {
-    return <TableSeatingsCard {...t} key={t.id} />;
+    return <TableSeatingsCard {...t} theme={theme} key={t.id} />;
   });
 
   return <>{tablesList}</>;
