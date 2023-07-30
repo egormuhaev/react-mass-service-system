@@ -18,8 +18,8 @@ import SwitchSlim from './settings/SwitchSlim/SwitchSlim';
 import SwitchNeomorp from './settings/SwitchNeomorp/SwitchNeomorp';
 import SettingsBox from './settings/SettingsBox/SettingsBox';
 import CardView from './ui/CardView/CardView';
-import { MCardView } from './ui/CardView/CardView.moution';
-import { MButton } from './ui/Button/Button.moution';
+import TableSeatingsCard from './tableSeatings/TableSeatingsCard/TableSeatingsCard';
+import TableSeatingsCardList from './tableSeatings/TableSeatingsCardList/TableSeatingsCardList';
 
 export {
   Menu,
@@ -42,6 +42,6 @@ export {
   SwitchNeomorp,
   SettingsBox,
   CardView,
-  MCardView,
-  MButton,
+  TableSeatingsCard,
+  TableSeatingsCardList,
 };

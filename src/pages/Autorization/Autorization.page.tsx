@@ -41,7 +41,7 @@ const Autorization: React.FC = (): JSX.Element => {
       if (loadingId) removeLoading(loadingId);
       dispatch(setAuthData({ ...auth }));
       setTimeout(() => {
-        navigation(routerPrivate.PROJECTS);
+        navigation(`${routerPrivate.PROJECTS}?id=${auth.user?.id}`);
       }, 1000);
     }
   }, [processAutorization, auth]);

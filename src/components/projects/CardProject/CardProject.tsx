@@ -4,19 +4,20 @@ import cn from 'classnames';
 import { useState } from 'react';
 import Button from '../../ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { queryParams, routerPrivate } from '../../../routes/config.routes';
 
 const CardProject: React.FC<CardProjectProps> = ({
   title,
   subTitle,
   theme = 'light',
-  route = '#',
+  id,
   ...props
 }) => {
   const [hovered, setHovered] = useState(false);
   const navigation = useNavigate();
 
   const toNavigate = () => {
-    navigation('/project/' + route);
+    navigation(`${routerPrivate.PROJECT}?${queryParams.PROJECT_ID}=${id}`);
   };
 
   const onMouseHover = () => {

@@ -13,8 +13,8 @@
   user-select: none;
 
   background-color: var(--bg-light);
-  grid-template-columns: auto 900px auto;
-  grid-template-rows: auto 500px auto;
+  grid-template-columns: auto 1000px auto;
+  grid-template-rows: auto 550px auto;
   grid-template-areas: '. . .' '. form . ' '. . .';
 }
 

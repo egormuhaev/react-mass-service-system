@@ -8,15 +8,19 @@ import {
 } from '../../api';
 import { ProjectsTable } from '../../interfaces/Supabase.interface';
 import { CardProjectProps } from '../../components/projects/CardProject/CardProject.props';
-import { useAppSelector, useMessage, useSettings } from '../../hooks';
+import { useMessage, useSettings } from '../../hooks';
+import { useSearchParams } from 'react-router-dom';
 
-const Dashboard: React.FC = () => {
+const Projects: React.FC = () => {
   const { settings } = useSettings();
 
-  const { user } = useAppSelector((state) => state.authenticationReducer.data);
+  const [searchParams] = useSearchParams();
 
-  const { message, sendLoading, sendMessage, removeLoading } =
-    useMessage(settings.theme);
+  const userID = searchParams.get('id');
+
+  const { message, sendLoading, sendMessage, removeLoading } = useMessage(
+    settings.theme
+  );
 
   const [value, setValue] = useState('');
   const [data, setData] = useState<ProjectsTable[] | null>([]);
@@ -42,9 +46,9 @@ const Dashboard: React.FC = () => {
   }, [data]);
 
   const selectAllProjects = async () => {
-    if (user) {
+    if (userID) {
       const id = sendLoading({ text: 'Обновление' });
-      const { data, error } = await fetchGetAllProjectByUser(user.id);
+      const { data, error } = await fetchGetAllProjectByUser(userID);
       removeLoading(id);
       if (error) {
         sendMessage({ type: 'error', text: 'Ошибка' });
@@ -55,10 +59,10 @@ const Dashboard: React.FC = () => {
   };
 
   const onCreate = async () => {
-    if (user) {
+    if (userID) {
       const id = sendLoading({ text: 'Создание' });
       const { data, error } = await fetchInsertNewProjectByUser({
-        user_id: user.id,
+        user_id: userID,
         name: value,
       });
       removeLoading(id);
@@ -87,4 +91,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default withLayout(Dashboard);
+export default withLayout(Projects);

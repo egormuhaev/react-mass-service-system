@@ -14,7 +14,7 @@ import neoOn from '../../assets/img/neo_on.png';
 import paletDark from '../../assets/img/palet_ui_dark.png';
 import paletLight from '../../assets/img/palet_ui_light.png';
 
-const Settings = () => {
+const Settings: React.FC = () => {
   const { settings, controlls } = useSettings();
 
   const onSwitchTheme = (value: boolean) => {

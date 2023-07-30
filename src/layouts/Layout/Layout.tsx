@@ -1,44 +1,62 @@
 import styles from './Layout.module.css';
 import { Menu, Header } from '../../components';
-import { MenuActionClick } from '../../components/ui/Menu/Menu.props';
-import { MenuStruct } from '../../components/ui/Menu/Menu.props';
+import {
+  MenuActionClick,
+  MenuStruct,
+} from '../../components/ui/Menu/Menu.props';
 import cn from 'classnames';
-import { BiSolidDashboard } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
-import { routerPrivate } from '../../routes/config.routes';
-import { CgProfile } from 'react-icons/cg';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSettings } from '../../hooks';
-import { IoSettingsSharp } from 'react-icons/io5';
+import {
+  menuStructFirst,
+  menuStructWorkspace,
+} from '../../utils/constants/navMenu.constants';
+import { urlPath } from '../../utils/helpers/urlPath.helpers';
+import { routerPrivate, queryParams } from '../../routes/config.routes';
+import { useEffect, useState } from 'react';
 
 export interface LayoutProps {
   children?: React.ReactNode;
 }
 
-const menu: MenuStruct[] = [
-  {
-    text: 'Акаунт',
-    token: routerPrivate.ACCOUNT,
-    icon: <CgProfile />,
-  },
-  {
-    text: 'Проекты',
-    token: routerPrivate.PROJECTS,
-    icon: <BiSolidDashboard />,
-  },
-  {
-    text: 'Настройки',
-    token: routerPrivate.SETTINGS,
-    icon: <IoSettingsSharp />,
-  },
-];
-
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { settings } = useSettings();
   const navigation = useNavigate();
+  const { pathname } = useLocation();
+  const [menu, setMenu] = useState<MenuStruct[]>([]);
+  const [searchParams] = useSearchParams();
+
+  const userID = searchParams.get(queryParams.ID);
+  const projectID = searchParams.get(queryParams.PROJECT_ID);
 
   const onClick: MenuActionClick = (e) => {
     navigation(e.token);
   };
+
+  useEffect(() => {
+    if (
+      urlPath(pathname, [
+        routerPrivate.ACCOUNT,
+        routerPrivate.PROJECTS,
+        routerPrivate.SETTINGS,
+      ]) &&
+      userID
+    ) {
+      setMenu(menuStructFirst(userID));
+    }
+    if (
+      urlPath(pathname, [
+        routerPrivate.PROJECT,
+        routerPrivate.EMPLIYEES,
+        routerPrivate.TABLE_SEATINGS,
+        routerPrivate.WORKSPACE,
+        routerPrivate.MENU,
+      ]) &&
+      projectID
+    ) {
+      setMenu(menuStructWorkspace(projectID));
+    }
+  }, [pathname]);
 
   return (
     <div

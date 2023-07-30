@@ -37,6 +37,37 @@ export interface Database {
           }
         ]
       }
+      tables: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string | null
+          project_id: string | null
+          "table seating": number | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          project_id?: string | null
+          "table seating"?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          project_id?: string | null
+          "table seating"?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tables_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,12 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import { routerPrivate, routerPublick } from '../routes/config.routes';
-import Account from '../pages/Account/Account';
+import Account from '../pages/Account/Account.page';
 import Autorization from '../pages/Autorization/Autorization.page';
 import Registration from '../pages/Registration/Registration.page';
-import Dashboard from '../pages/Projects/Projects.page';
+import Projects from '../pages/Projects/Projects.page';
 import AuthRequire from '../hoc/AuthRequire.hoc';
+import AuthWorkspaceRequire from '../hoc/AuthWorkspaceRequire.hoc';
 import Preview from '../pages/Preview/Preview.page';
-import Settings from '../pages/Settings/Settings';
+import Settings from '../pages/Settings/Settings.page';
+import Project from '../pages/Project/Project.page';
+import TableSeatings from '../pages/TableSeatings/TableSeatings.page';
 
 const AppRouter: React.FC = (): JSX.Element => {
   return (
@@ -15,10 +18,18 @@ const AppRouter: React.FC = (): JSX.Element => {
       <Route path={routerPublick.AUTORIZATION} element={<Autorization />} />
       <Route path={routerPublick.REGISTRATION} element={<Registration />} />
       <Route
+        path={routerPrivate.PROJECT}
+        element={
+          <AuthWorkspaceRequire>
+            <Project />
+          </AuthWorkspaceRequire>
+        }
+      />
+      <Route
         path={routerPrivate.PROJECTS}
         element={
           <AuthRequire>
-            <Dashboard />
+            <Projects />
           </AuthRequire>
         }
       />
@@ -36,6 +47,14 @@ const AppRouter: React.FC = (): JSX.Element => {
           <AuthRequire>
             <Settings />
           </AuthRequire>
+        }
+      />
+      <Route
+        path={routerPrivate.TABLE_SEATINGS}
+        element={
+          <AuthWorkspaceRequire>
+            <TableSeatings />
+          </AuthWorkspaceRequire>
         }
       />
     </Routes>

@@ -8,7 +8,7 @@ const SettingsBox: React.FC<SettingsBoxProps> = ({
   theme,
   titleBox,
   settings = [],
-}) => {
+}): JSX.Element => {
   const settingsItems = settings.map((s) => (
     <div className={styles.settingsItem}>
       <p className={styles.titleSettings}>{s.title}</p>
