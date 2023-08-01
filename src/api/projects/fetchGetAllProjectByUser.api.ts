@@ -1,4 +1,4 @@
-import supabase from '../supabase/supabase.client';
+import supabase from '../../supabase/supabase.client';
 
 const fetchGetAllProjectByUser = async (id: string) => {
   try {

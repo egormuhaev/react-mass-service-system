@@ -6,6 +6,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   size = 'm',
   appearence = 'ghost',
+  className,
   icon,
   text,
   ref,
@@ -15,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className={cn(
         styles.button,
+        className,
         {
           [styles.s]: size === 's',
           [styles.m]: size === 'm',

@@ -6,7 +6,7 @@ export interface IInsertNewTable {
   table_seating: number;
 }
 
-export const fetchIsertNewTable = async ({
+export const fetchInsertCreateTable = async ({
   project_id,
   name,
   table_seating,
@@ -22,4 +22,4 @@ export const fetchIsertNewTable = async ({
   }
 };
 
-export default fetchIsertNewTable
+export default fetchInsertCreateTable;

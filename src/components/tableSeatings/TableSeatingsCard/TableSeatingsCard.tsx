@@ -18,9 +18,30 @@ const TableSeatingsCard: React.FC<TableSeatingsCardProps> = ({
   name,
   active,
   seatings,
+  onEdit,
+  onDelete,
+  onDisable,
   id,
   ...props
 }): JSX.Element => {
+  const handleDeleteClick = () => {
+    if (onDelete) {
+      onDelete(id);
+    }
+  };
+
+  const handleActiveSwitch = () => {
+    if (onDisable) {
+      onDisable(id, !active, seatings ?? 0, name ?? '');
+    }
+  };
+
+  const handleEditClick = () => {
+    if (onEdit) {
+      onEdit(id);
+    }
+  };
+
   return (
     <div
       className={cn(styles.card, {
@@ -53,16 +74,14 @@ const TableSeatingsCard: React.FC<TableSeatingsCardProps> = ({
               />
             </SwitchInnerIcon>
           }
-          onChange={() => {
-            return 0;
-          }}
+          onChange={handleActiveSwitch}
           checked={active ?? true}
         />
 
-        <Button appearence="warring">
+        <Button appearence="warring" onClick={handleEditClick}>
           <MdModeEdit />
         </Button>
-        <Button appearence="error">
+        <Button appearence="error" onClick={handleDeleteClick}>
           <MdDeleteSweep />
         </Button>
       </div>

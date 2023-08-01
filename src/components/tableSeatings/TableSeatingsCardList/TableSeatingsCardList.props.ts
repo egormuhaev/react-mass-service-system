@@ -6,3 +6,4 @@ export interface TableSeatingsCardListProps {
   tables: TableSeatingsCardProps[];
   theme: Theme;
 }
+ 

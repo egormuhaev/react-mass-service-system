@@ -20,6 +20,7 @@ import SettingsBox from './settings/SettingsBox/SettingsBox';
 import CardView from './ui/CardView/CardView';
 import TableSeatingsCard from './tableSeatings/TableSeatingsCard/TableSeatingsCard';
 import TableSeatingsCardList from './tableSeatings/TableSeatingsCardList/TableSeatingsCardList';
+import Drawer from './ui/Drawer/Drawer';
 
 export {
   Menu,
@@ -44,4 +45,5 @@ export {
   CardView,
   TableSeatingsCard,
   TableSeatingsCardList,
+  Drawer
 };

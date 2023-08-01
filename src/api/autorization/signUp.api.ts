@@ -1,4 +1,4 @@
-import supabase from '../supabase/supabase.client';
+import supabase from '../../supabase/supabase.client';
 
 export interface ISignUpArgs {
   email: string;

@@ -13,4 +13,12 @@ export interface TableSeatingsCardProps
   id: string;
   active: boolean | null;
   seatings?: number | null;
+  onEdit?: (id: string) => void;
+  onDelete?: (id: string) => void;
+  onDisable?: (
+    table_id: string,
+    active: boolean,
+    table_seating: number,
+    name: string
+  ) => void;
 }
