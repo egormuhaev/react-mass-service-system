@@ -2,7 +2,6 @@ import { useSearchParams } from 'react-router-dom';
 import { withLayout } from '../../layouts/Layout/Layout';
 import { queryParams } from '../../routes/config.routes';
 import { useMessage, useSettings } from '../../hooks';
-import { TableSeatingsCardList } from '../../components';
 import styles from './TableSeatings.module.css';
 import { useEffect, useState } from 'react';
 import { TableSeatingsCardProps } from '../../components/tableSeatings/TableSeatingsCard/TableSeatingsCard.props';
@@ -12,7 +11,11 @@ import {
   fetchUpdateTable,
 } from '../../api';
 import { TableShema } from '../../interfaces/Supabase.interface';
-import { Drawer } from '../../components/index';
+import {
+  Drawer,
+  EditTable,
+  TableSeatingsCardList,
+} from '../../components/index';
 
 const TableSeatings: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -37,9 +40,9 @@ const TableSeatings: React.FC = () => {
           id: d.id,
           name: d.name,
           active: d.active,
-          settings: d.table_seating,
+          seatings: d.table_seating,
           onDelete: onDeleteTable,
-          onDisable: onDisable,
+          onDisable: onEditTableQuery,
           onEdit: onEditTable,
         };
       });
@@ -60,7 +63,7 @@ const TableSeatings: React.FC = () => {
     }
   };
 
-  const onDisable = async (
+  const onEditTableQuery = async (
     table_id: string,
     active: boolean,
     table_seating: number,
@@ -73,7 +76,11 @@ const TableSeatings: React.FC = () => {
       table_seating,
       active,
     });
-    if (error) sendMessage({ type: 'error', text: 'Ошибка смены статуса' });
+    if (error) {
+      sendMessage({ type: 'error', text: 'Ошибка смены статуса' });
+    } else {
+      setEditTable(null);
+    }
     removeLoading(loading);
   };
 
@@ -84,7 +91,8 @@ const TableSeatings: React.FC = () => {
   const getTables = async () => {
     if (projectId) {
       const { data, error } = await fetchSelectTable(projectId);
-      if (error) sendMessage({ type: 'error', text: 'Ошибка загрузки' });
+      if (error && !data)
+        sendMessage({ type: 'error', text: 'Ошибка загрузки' });
       setData(data);
     }
   };
@@ -103,7 +111,12 @@ const TableSeatings: React.FC = () => {
           title="Настройка стола"
           style={{ width: '600px' }}
         >
-          123
+          <EditTable
+            tables={tables}
+            tableId={editTable}
+            onEdit={onEditTableQuery}
+            theme={settings.theme}
+          />
         </Drawer>
       )}
     </>
