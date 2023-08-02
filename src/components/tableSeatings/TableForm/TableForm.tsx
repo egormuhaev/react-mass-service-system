@@ -33,7 +33,9 @@ const TableForm: React.FC<TableFormProps> = ({
 
   const handleClickSave = () => {
     if (onEdit && table && name && seatings && tableId) {
-      onEdit(tableId, table.active ?? true, seatings, name);
+      const seatingsCurrent =
+        seatings > 0 ? Math.round(seatings) : -1 * Math.round(seatings);
+      onEdit(tableId, table.active ?? true, seatingsCurrent, name);
     }
   };
 

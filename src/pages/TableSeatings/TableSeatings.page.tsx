@@ -14,7 +14,6 @@ import {
 import { TableShema } from '../../interfaces/Supabase.interface';
 import {
   Drawer,
-  EditTable,
   TableForm,
   TableSeatingsCardList,
   Button,
@@ -132,21 +131,6 @@ const TableSeatings: React.FC = () => {
         <TableSeatingsCardList tables={tables} theme={settings.theme} />
       </div>
       {message}
-      {editTable && (
-        <Drawer
-          onClose={onCloseDrawer}
-          theme={settings.theme}
-          title="Настройка стола"
-          style={{ width: '600px' }}
-        >
-          <EditTable
-            tables={tables}
-            tableId={editTable}
-            onEdit={onEditTableQuery}
-            theme={settings.theme}
-          />
-        </Drawer>
-      )}
       {(editTable || createTable) && (
         <Drawer
           onClose={onCloseDrawer}
