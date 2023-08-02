@@ -1,11 +1,10 @@
-import { type } from 'os';
 import { TableSeatingsCardProps } from '../TableSeatingsCard/TableSeatingsCard.props';
 export type Theme = 'dark' | 'light';
 
-export interface EditTableProps {
+export interface TableFormProps {
   children?: React.ReactNode;
   theme: Theme;
-  tableId: string;
+  tableId?: string;
   tables: TableSeatingsCardProps[];
   onEdit?: (
     table_id: string,
@@ -13,6 +12,7 @@ export interface EditTableProps {
     table_seating: number,
     name: string
   ) => void;
+  onCreate?: (table_seating: number, name: string) => void;
 }
 
 export type Table = TableSeatingsCardProps;

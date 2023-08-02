@@ -34,7 +34,8 @@
 }
 
 .neomorphism {
-  border-radius: 50px;
+  /* border-radius: 50px; */
+  border-radius: 4px;
   padding-top: 25px;
 
   box-sizing: border-box;

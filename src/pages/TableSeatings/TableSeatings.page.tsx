@@ -9,12 +9,15 @@ import {
   fetchSelectTable,
   fetchDeletaTable,
   fetchUpdateTable,
+  fetchInsertCreateTable,
 } from '../../api';
 import { TableShema } from '../../interfaces/Supabase.interface';
 import {
   Drawer,
   EditTable,
+  TableForm,
   TableSeatingsCardList,
+  Button,
 } from '../../components/index';
 
 const TableSeatings: React.FC = () => {
@@ -24,6 +27,7 @@ const TableSeatings: React.FC = () => {
   const [data, setData] = useState<TableShema[] | null>(null);
   const [tables, setTables] = useState<TableSeatingsCardProps[]>([]);
   const [editTable, setEditTable] = useState<string | null>(null);
+  const [createTable, setCreateTable] = useState(false);
 
   const { message, sendLoading, removeLoading, sendMessage } = useMessage(
     settings.theme
@@ -57,7 +61,25 @@ const TableSeatings: React.FC = () => {
     removeLoading(loading);
   };
 
-  const onEditTable = async (id: string) => {
+  const onCreateTable = () => {
+    if (!createTable) setCreateTable(true);
+  };
+
+  const onCreateTableQuery = async (table_seating: number, name: string) => {
+    const id = sendLoading({ text: 'Добавление' });
+    if (projectId) {
+      const { data, error } = await fetchInsertCreateTable({
+        project_id: projectId,
+        table_seating,
+        name,
+      });
+      if (error) sendMessage({ type: 'error', text: 'Ошибка' });
+      else setCreateTable(false);
+    }
+    removeLoading(id);
+  };
+
+  const onEditTable = (id: string) => {
     if (!editTable) {
       setEditTable(id);
     }
@@ -86,13 +108,13 @@ const TableSeatings: React.FC = () => {
 
   const onCloseDrawer = () => {
     setEditTable(null);
+    setCreateTable(false);
   };
 
   const getTables = async () => {
     if (projectId) {
       const { data, error } = await fetchSelectTable(projectId);
-      if (error && !data)
-        sendMessage({ type: 'error', text: 'Ошибка загрузки' });
+      if (error && !data) console.log(error);
       setData(data);
     }
   };
@@ -100,6 +122,12 @@ const TableSeatings: React.FC = () => {
   return (
     <>
       <div className={styles.page}>
+        <Button
+          size="m"
+          appearence="primary"
+          text="Добавить стол"
+          onClick={onCreateTable}
+        />
         {!tables.length && <p>Столов нет</p>}
         <TableSeatingsCardList tables={tables} theme={settings.theme} />
       </div>
@@ -117,6 +145,30 @@ const TableSeatings: React.FC = () => {
             onEdit={onEditTableQuery}
             theme={settings.theme}
           />
+        </Drawer>
+      )}
+      {(editTable || createTable) && (
+        <Drawer
+          onClose={onCloseDrawer}
+          theme={settings.theme}
+          title={editTable ? 'Редактирование стола' : 'Добавление стола'}
+          style={{ width: '600px' }}
+        >
+          {editTable && (
+            <TableForm
+              tables={tables}
+              tableId={editTable}
+              onEdit={onEditTableQuery}
+              theme={settings.theme}
+            />
+          )}
+          {createTable && (
+            <TableForm
+              tables={tables}
+              onCreate={onCreateTableQuery}
+              theme={settings.theme}
+            />
+          )}
         </Drawer>
       )}
     </>

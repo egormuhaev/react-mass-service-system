@@ -21,7 +21,8 @@ import CardView from './ui/CardView/CardView';
 import TableSeatingsCard from './tableSeatings/TableSeatingsCard/TableSeatingsCard';
 import TableSeatingsCardList from './tableSeatings/TableSeatingsCardList/TableSeatingsCardList';
 import Drawer from './ui/Drawer/Drawer';
-import EditTable from './tableSeatings/EditTable/EditTable';
+import EditTable from './tableSeatings/TableForm/TableForm';
+import TableForm from './tableSeatings/TableForm/TableForm';
 
 export {
   Menu,
@@ -48,4 +49,5 @@ export {
   TableSeatingsCardList,
   Drawer,
   EditTable,
+  TableForm,
 };

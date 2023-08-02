@@ -1,4 +1,7 @@
 .edit {
+  box-sizing: border-box;
+  padding-top: 40px;
+
   height: auto;
   width: 100%;
 
