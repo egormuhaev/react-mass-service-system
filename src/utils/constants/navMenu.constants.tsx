@@ -47,7 +47,7 @@ const menuStructWorkspace = (projectID: string): MenuStruct[] => {
     },
     {
       text: 'Меню',
-      token: `${routerPrivate.TABLE_SEATINGS}?${queryParams.PROJECT_ID}=${projectID}`,
+      token: `${routerPrivate.MENU}?${queryParams.PROJECT_ID}=${projectID}`,
       icon: <MdOutlineMenuBook />,
     },
     {

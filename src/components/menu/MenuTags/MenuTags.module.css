@@ -1,0 +1,67 @@
+.form {
+  height: 100%;
+  width: 300px;
+
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+  padding: 10px;
+
+  color: var(--black);
+
+  background-color: var(--bg-ui-light);
+
+  box-shadow: 9px 9px 24px #969598, -9px -9px 24px #ffffff;
+
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.form::-webkit-scrollbar {
+  width: 0;
+}
+
+.dark.form {
+  color: #fff;
+  background-color: var(--bg-ui-dark);
+  box-shadow: 9px 9px 24px #0f1012, -9px -9px 24px #212428;
+}
+
+.add {
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag.new {
+  color: var(--green);
+}
+
+.deleteBtn {
+  display: none;
+}
+
+.tag:hover > .deleteBtn {
+  display: block;
+}

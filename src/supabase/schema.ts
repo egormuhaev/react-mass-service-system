@@ -9,6 +9,34 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      menu_tags: {
+        Row: {
+          created_at: string | null
+          id: string
+          project_id: string | null
+          tag: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          project_id?: string | null
+          tag?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          project_id?: string | null
+          tag?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "menu_tags_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       projects: {
         Row: {
           created_at: string | null
@@ -39,7 +67,7 @@ export interface Database {
       }
       tables: {
         Row: {
-          active: boolean | null
+          active: boolean
           created_at: string | null
           id: string
           name: string | null
@@ -47,7 +75,7 @@ export interface Database {
           table_seating: number | null
         }
         Insert: {
-          active?: boolean | null
+          active?: boolean
           created_at?: string | null
           id?: string
           name?: string | null
@@ -55,7 +83,7 @@ export interface Database {
           table_seating?: number | null
         }
         Update: {
-          active?: boolean | null
+          active?: boolean
           created_at?: string | null
           id?: string
           name?: string | null

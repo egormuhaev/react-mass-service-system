@@ -21,8 +21,9 @@ import CardView from './ui/CardView/CardView';
 import TableSeatingsCard from './tableSeatings/TableSeatingsCard/TableSeatingsCard';
 import TableSeatingsCardList from './tableSeatings/TableSeatingsCardList/TableSeatingsCardList';
 import Drawer from './ui/Drawer/Drawer';
-
 import TableForm from './tableSeatings/TableForm/TableForm';
+import MenuTags from './menu/MenuTags/MenuTags';
+import Tag from './ui/Tag/Tag';
 
 export {
   Menu,
@@ -49,4 +50,6 @@ export {
   TableSeatingsCardList,
   Drawer,
   TableForm,
+  MenuTags,
+  Tag,
 };

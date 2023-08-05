@@ -6,6 +6,9 @@ import fetchInsertCreateTable from './tableSeatings/fetchInsertCreateTable.api';
 import fetchSelectTable from './tableSeatings/fetchSelectTable.api';
 import fetchDeletaTable from './tableSeatings/fetchDeleteTable.api';
 import fetchUpdateTable from './tableSeatings/fetchUpdateTable.api';
+import fetchInsertTags from './menu/fetchInsertTags.api';
+import fetchSelectTags from './menu/fetchSelectTags.api';
+import fetchDeleteTags from './menu/fetchDeleteTags.api';
 
 export {
   signUp,
@@ -16,4 +19,7 @@ export {
   fetchSelectTable,
   fetchDeletaTable,
   fetchUpdateTable,
+  fetchInsertTags,
+  fetchSelectTags,
+  fetchDeleteTags,
 };

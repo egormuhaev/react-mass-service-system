@@ -10,6 +10,7 @@ import Preview from '../pages/Preview/Preview.page';
 import Settings from '../pages/Settings/Settings.page';
 import Project from '../pages/Project/Project.page';
 import TableSeatings from '../pages/TableSeatings/TableSeatings.page';
+import Menu from '../pages/Menu/Menu.page';
 
 const AppRouter: React.FC = (): JSX.Element => {
   return (
@@ -54,6 +55,14 @@ const AppRouter: React.FC = (): JSX.Element => {
         element={
           <AuthWorkspaceRequire>
             <TableSeatings />
+          </AuthWorkspaceRequire>
+        }
+      />
+      <Route
+        path={routerPrivate.MENU}
+        element={
+          <AuthWorkspaceRequire>
+            <Menu />
           </AuthWorkspaceRequire>
         }
       />
