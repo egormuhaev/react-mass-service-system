@@ -1,5 +1,5 @@
 import { TableFormProps, Table } from './TableForm.props';
-import styles from './EditTable.module.css';
+import styles from './TableForm.module.css';
 import Input from '../../ui/Input/Input';
 import Button from '../../ui/Button/Button';
 import { useEffect, useState } from 'react';
